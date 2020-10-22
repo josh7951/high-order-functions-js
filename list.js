@@ -103,7 +103,7 @@ Cons.prototype.append = function(e){
     return new Cons(this.head, this.tail.append(e));
 };
 Cons.prototype.contains = function(val){
-    return this.head == val || this,tail.contains(val); 
+    return this.head == val || this.tail.contains(val); 
 };
 
 function Nil() {}

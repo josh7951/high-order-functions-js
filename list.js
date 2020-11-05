@@ -105,11 +105,11 @@ Cons.prototype.append = function(e){
 Cons.prototype.contains = function(val){
     return this.head == val || this.tail.contains(val); 
 };
-Cons.prototype.map = function(e){
-    return e + 1;
+Cons.prototype.map = function(m){
+    return m(this);
 };
-Cons.prototype.filter = function(num){
-    return num > 6;
+Cons.prototype.filter = function(f){
+    return f(this);
 }
 
 function Nil() {}
@@ -128,11 +128,11 @@ Nil.prototype.append = function(e){
 Nil.prototype.contains = function(val){
     return false;
 };
-Nil.prototype.map = function(e){
-    return e;
+Nil.prototype.map = function(){
+    return this;
 };
-Nil.prototype.filter = function(e){
-    return e;
+Nil.prototype.filter = function(){
+    return this;
 };
 // ---BEGIN CODE FOR TESTING---
 // Do not modify!  When I test your code myself,

@@ -85,7 +85,6 @@ List.prototype.join = function(delim) {
 List.prototype.toString = function() {
     return this.join(", ");
 };
-
 function Cons(head, tail) {
     this.head = head;
     this.tail = tail;
@@ -106,10 +105,13 @@ Cons.prototype.contains = function(val){
     return this.head == val || this.tail.contains(val); 
 };
 Cons.prototype.map = function(m){
-    return m(this);
+    return new Cons(m(this.head), this.tail.map(m)); 
 };
-Cons.prototype.filter = function(f){
-    return f(this);
+Cons.prototype.filter = function(fil){
+    if(fil(this.head)){
+      return new Cons(this.head, this.tail.filter(fil)); 
+    }
+    return this.tail.filter(fil); 
 }
 
 function Nil() {}

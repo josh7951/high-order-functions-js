@@ -108,10 +108,7 @@ Cons.prototype.map = function(m){
     return new Cons(m(this.head), this.tail.map(m)); 
 };
 Cons.prototype.filter = function(fil){
-    if(fil(this.head)){
-      return new Cons(this.head, this.tail.filter(fil)); 
-    }
-    return this.tail.filter(fil); 
+    return fil(this.head) ? new Cons(this.head, this.tail.filter(fil)) : this.tail.filter(fil);
 }
 
 function Nil() {}
